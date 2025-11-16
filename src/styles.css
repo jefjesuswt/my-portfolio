@@ -1,1 +1,234 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+@import 'tailwindcss';
+
+:root {
+  /*MODO OSCURO*/
+  --bg-primary: theme(colors.gray.950);
+  --text-primary: theme(colors.gray.300);
+  --text-secondary: theme(colors.gray.400);
+  --text-emphasis: theme(colors.gray.100);
+  --border-color: theme(colors.gray.700);
+  --border-color-subtle: theme(colors.gray.800);
+
+  /* (claros para el modo oscuro */
+  --color-teal: theme(colors.teal.300);
+  --color-emerald: theme(colors.emerald.400);
+  --color-sky: theme(colors.sky.400);
+}
+
+/* Aplicación base */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.invisible-start {
+  opacity: 0;
+}
+
+/*ANIMACIONES*/
+/* --- KEYFRAMES (usados por la directiva) --- */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scrollX {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes move-stars-sm {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1000px 1000px;
+  }
+}
+@keyframes move-stars-md {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -800px -800px;
+  }
+}
+@keyframes move-stars-lg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 900px -900px;
+  }
+}
+
+/* --- CLASES ACTIVADORAS (usadas por la directiva) --- */
+.animate-slide-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.3s ease-out both;
+}
+
+.animate-fade-out-up {
+  animation: fadeOutUp 0.3s ease-in forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s ease-out both;
+}
+
+.animate-scroll-x {
+  display: flex;
+  width: max-content;
+
+  animation: scrollX 30s linear infinite;
+}
+
+.lang-text {
+  opacity: 1;
+  filter: blur(0px);
+  transition:
+    opacity 0.3s ease-out,
+    filter 0.3s ease-out,
+    color 0.3s ease-out;
+}
+
+.lang-text-fading {
+  opacity: 0;
+  filter: blur(4px);
+
+  transition:
+    opacity 0.2s ease-in,
+    filter 0.2s ease-in,
+    color 0.2s ease-in;
+}
+
+.star-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.stars-sm,
+.stars-md,
+.stars-lg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.stars-sm {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, var(--color-teal), transparent),
+    radial-gradient(1px 1px at 50px 80px, var(--color-teal), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--color-teal), transparent);
+  background-size: 100px 100px;
+
+  animation-name: move-stars-sm;
+  animation-duration: 15s;
+}
+
+.stars-md {
+  background-image:
+    radial-gradient(2px 2px at 40px 60px, var(--color-emerald), transparent),
+    radial-gradient(2px 2px at 150px 120px, var(--color-emerald), transparent);
+  background-size: 200px 200px;
+
+  animation-name: move-stars-md;
+  animation-duration: 25s;
+}
+
+.stars-lg {
+  background-image:
+    radial-gradient(3px 3px at 100px 100px, var(--color-teal), transparent),
+    radial-gradient(3px 3px at 250px 200px, var(--color-teal), transparent);
+  background-size: 300px 300px;
+
+  animation-name: move-stars-lg;
+  animation-duration: 40s;
+}
