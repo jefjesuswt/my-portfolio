@@ -6,8 +6,3 @@
 
 # CORRECCIÓN: 'functions' debe ser su propia sección [functions]
 # y apuntar al output 'server' de Angular.
-[functions]
-  directory = "dist/my-portfolio/server"
-
-# El resto de tu archivo (redirects, dev) estaba bien como estaba, comentado.
-# No necesitas la línea 'functions = "netlify/functions"' dentro de [build]
