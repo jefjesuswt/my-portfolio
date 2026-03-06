@@ -1,86 +1,151 @@
-// Define la estructura del contenido
-export interface AboutMeContent {
+export interface Experience {
+  role: string;
+  company: string;
+  location: string;
+  date: string;
+  achievements: string[];
+}
+
+export interface Education {
+  institution: string;
+  degree: string;
+  location: string;
+  details: string;
+}
+
+export interface SkillCategory {
   title: string;
-  // Sección 1: Origen
-  heading_origin: string;
-  p_origin_1: string;
-  // Sección 2: El Viaje
-  heading_journey: string;
-  p_journey_1: string;
-  p_journey_2: string;
-  // Sección 3: Filosofía
-  heading_philosophy: string;
-  p_philosophy_1: string;
-  p_philosophy_2: string;
-  // Sección 4: Pasiones
-  heading_passions: string;
-  p_passions_1: string;
-  p_passions_2: string;
-  p_passions_3: string;
+  items: string[];
+}
+
+export interface CvContent {
+  title: string;
+
+  // Sections Headers
+  heading_summary: string;
+  heading_experience: string;
+  heading_education: string;
+  heading_skills: string;
+  heading_certifications: string;
+
+  // Data
+  summary: string;
+  experience: Experience[];
+  education: Education[];
+  skills: SkillCategory[];
+  certifications: string[];
 }
 
 // --- DATOS EN ESPAÑOL ---
-const esData: AboutMeContent = {
-  title: '&gt; cat ./sobre-mi.md',
+const esData: CvContent = {
+  title: '&gt; cat ./curriculum.md',
 
-  heading_origin: '[ Origen: La pasión por experimentar ]', // <== CAMBIO AQUÍ
-  p_origin_1:
-    'Mi pasión por la tecnología nació a los 4 años con una PS1. Pero mi interés nunca fue solo jugar; era la curiosidad por "cacharrear": investigar por horas cómo hackear consolas, correr *homebrew* y entender cómo funcionaban las cosas por dentro. Esa curiosidad innata fue lo que me llevó a la Ingeniería de Sistemas.',
+  heading_summary: '[ SUMMARY ]',
+  summary: 'Próximo Ingeniero de Sistemas (10º semestre) con una base sólida en el ciclo de vida del desarrollo de software y gestión de bases de datos.',
 
-  heading_journey: '[ El Viaje: Hiato y Regreso ]',
-  p_journey_1:
-    'Inicié mis estudios en 2015, pero en 2017 la vida me llevó por otro camino. Hice un hiato y estuve viviendo en Buenos Aires. Regresé a Venezuela en 2022.',
-  p_journey_2:
-    'En 2023 tomé una decisión consciente: retomar mis estudios y dedicarme por completo a esta pasión. Aunque la universidad me dio una base, gran parte de mi stack moderno (Angular, NestJS) lo he forjado de forma autodidacta, especialmente gracias a la claridad de mentores como Fernando Herrera (DevTalles).',
+  heading_experience: '[ EXPERIENCE ]',
+  experience: [
+    {
+      role: 'Pasante',
+      company: 'iGemas, C.A.',
+      location: 'Barcelona, Anzoátegui',
+      date: 'Nov 2025 - Ene 2026',
+      achievements: [
+        'Desarrollé un frontend de alto rendimiento para 5 sistemas web empresariales (gCon, gAdm, gHub, gBox, gInm) utilizando Angular 19+ y Tailwind CSS, implementando SSR (Server-Side Rendering) y Lazy Loading para optimizar la velocidad de la plataforma y el SEO.',
+        'Automaticé los flujos de trabajo de despliegue y configuración arquitectando pipelines de CI/CD con Netlify y Bun, reemplazando procesos manuales con ciclos de lanzamiento optimizados y scripts de entorno Node.js personalizados.',
+        'Gestioné entornos de desarrollo y producción en sistemas basados en Linux, utilizando herramientas CLI y una arquitectura basada en componentes para asegurar una alta reutilización de código y escalabilidad de la infraestructura.'
+      ]
+    }
+  ],
 
-  heading_philosophy: '[ Filosofía: Código Abierto y Libertarianismo ]',
-  p_philosophy_1:
-    'Me considero un libertario, y esa filosofía resuena con mi forma de ver la tecnología. Soy un firme creyente y usuario del <strong class="text-teal-300/80">código abierto.</strong>',
-  p_philosophy_2:
-    'Veo el open-source no solo como un modelo de desarrollo, sino como una postura moral sobre la libertad y la colaboración.',
+  heading_education: '[ EDUCATION ]',
+  education: [
+    {
+      institution: 'Instituto Universitario Politécnico "Santiago Mariño"',
+      degree: 'Ingeniería de Sistemas',
+      location: 'Barcelona, Anzoátegui',
+      details: 'Materias relevantes: Economía, Programación, Estructuras de Datos, Optimización de Sistemas, etc.'
+    }
+  ],
 
-  heading_passions: '[ Intereses y Enfoque ]',
+  heading_skills: '[ SKILLS ]',
+  skills: [
+    {
+      title: 'Technological Stack',
+      items: ['TypeScript/JavaScript (ES6+)', 'Java', 'SQL', 'HTML5/CSS3', 'Angular 20+', 'NestJS', 'Vue/Nuxt', 'Hono/H3', 'RxJS', 'Tailwind CSS']
+    },
+    {
+      title: 'Tools & DevOps',
+      items: ['Bun', 'Node.js', 'Netlify', 'Linux CLI', 'CI/CD Pipelines', 'Git/GitHub', 'Jasmine/Karma']
+    },
+    {
+      title: 'Soft Skills & Interests',
+      items: ['Metodologías Ágiles (Scrum)', 'Resolución de Problemas', 'IoT (gHub)', 'Open Source', 'Arquitectura Backend']
+    }
+  ],
 
-  p_passions_1:
-    'Mis pasatiempos son un reflejo de mi personalidad. Disfruto de los desafíos inmersivos que invitan a la <strong class="text-teal-300/80">exploración</strong> y a la resolución de problemas de forma creativa.',
-
-  p_passions_2:
-    'Por otro lado, me atraen los retos de alta dificultad que requieren <strong class="text-teal-300/80">paciencia y un alto nivel de persistencia</strong>, reforzando mi filosofía de perseverar hasta dominar el sistema.',
-
-  p_passions_3:
-    'El hilo conductor en todo —el código, mi filosofía, mis intereses— es mi <strong class="text-teal-300/80">interés por lo complejo</strong>. Me motiva analizar sistemas difíciles y no conformarme con conclusiones obvias, aplicando esta <strong class="text-teal-300/80">perseverancia</strong> en todos mis proyectos.',
+  heading_certifications: '[ CERTIFICATIONS ]',
+  certifications: [
+    'EF SET English Certificate (B2 Upper Intermediate). 2025',
+    'Angular: De Cero a Experto: DevTalles. 2025',
+    'Node.js: De Cero a Experto: DevTalles. 2025'
+  ]
 };
 
-const enData: AboutMeContent = {
-  title: '&gt; cat ./about-me.md',
+// --- DATOS EN INGLÉS ---
+const enData: CvContent = {
+  title: '&gt; cat ./resume.md',
 
-  heading_origin: '[ Origin: The Joy of "Tinkering" ]',
-  p_origin_1:
-    'My passion for technology began at age 4 with a PS1. But my interest was never just about playing; it was the curiosity for "tinkering": spending hours researching how to hack consoles, run homebrew, and understand how things worked inside. That innate curiosity is what led me to Systems Engineering.',
+  heading_summary: '[ SUMMARY ]',
+  summary: 'Upcoming Systems Engineer (10th semester) with a solid foundation in the software development lifecycle and database management.',
 
-  heading_journey: '[ The Journey: Hiatus and Return ]',
-  p_journey_1:
-    'I started my studies in 2015, but in 2017 life took me down a different path. I took a hiatus and lived in Buenos Aires. I returned to Venezuela in 2022.',
-  p_journey_2:
-    'In 2023, I made a conscious decision: to resume my studies and dedicate myself fully to this passion. Although university gave me a foundation, much of my modern stack (Angular, NestJS) has been self-taught, especially thanks to the clarity of mentors like Fernando Herrera (DevTalles).',
+  heading_experience: '[ EXPERIENCE ]',
+  experience: [
+    {
+      role: 'Intern',
+      company: 'iGemas, C.A.',
+      location: 'Barcelona, Anzoátegui',
+      date: 'Nov 2025 - Jan 2026',
+      achievements: [
+        'Developed a high-performance frontend for 5 enterprise web systems (gCon, gAdm, gHub, gBox, gInm) using Angular 19+ and Tailwind CSS, implementing SSR (Server-Side Rendering) and Lazy Loading to optimize platform speed and SEO.',
+        'Automated deployment and configuration workflows by architecting CI/CD pipelines with Netlify and Bun, replacing manual processes with optimized release cycles and custom Node.js environment scripts.',
+        'Managed development and production environments on Linux-based systems using CLI tools and a component-based architecture to ensure high code reusability and infrastructure scalability.'
+      ]
+    }
+  ],
 
-  heading_philosophy: '[ Philosophy: Open Source ]',
-  p_philosophy_1:
-    'I consider myself a libertarian, and that philosophy resonates with how I see technology. I am a firm believer in and user of <strong class="text-teal-300/80">open-source.</strong>',
-  p_philosophy_2:
-    'I see open-source not just as a development model, but as a moral stance on freedom and collaboration.',
+  heading_education: '[ EDUCATION ]',
+  education: [
+    {
+      institution: 'Instituto Universitario Politécnico "Santiago Mariño"',
+      degree: 'Systems Engineering',
+      location: 'Barcelona, Anzoátegui',
+      details: 'Relevant coursework: Economics, Programming, Data Structures, System Optimization, etc.'
+    }
+  ],
 
-  // --- SECCIÓN ACTUALIZADA ---
-  heading_passions: '[ Interests & Focus ]', // <== CAMBIO AQUÍ
+  heading_skills: '[ SKILLS ]',
+  skills: [
+    {
+      title: 'Technological Stack',
+      items: ['TypeScript/JavaScript (ES6+)', 'Java', 'SQL', 'HTML5/CSS3', 'Angular 20+', 'NestJS', 'Vue/Nuxt', 'Hono/H3', 'RxJS', 'Tailwind CSS']
+    },
+    {
+      title: 'Tools & DevOps',
+      items: ['Bun', 'Node.js', 'Netlify', 'Linux CLI', 'CI/CD Pipelines', 'Git/GitHub', 'Jasmine/Karma']
+    },
+    {
+      title: 'Soft Skills & Interests',
+      items: ['Agile Methodologies (Scrum)', 'Problem Solving', 'IoT (gHub)', 'Open Source', 'Backend Architecture']
+    }
+  ],
 
-  p_passions_1:
-    'My hobbies are a reflection of my personality. I enjoy immersive challenges that encourage <strong class="text-teal-300/80">exploration</strong> and creative problem-solving.',
-
-  p_passions_2:
-    'On the other hand, I am drawn to high-difficulty challenges that require <strong class="text-teal-300/80">patience and a high level of persistence</strong>, reinforcing my philosophy of persevering until I master the system.',
-
-  p_passions_3:
-    'The common thread in everything—the code, my philosophy, my interests—is my <strong class="text-teal-300/80">interest in the complex</strong>. I am driven to analyze difficult systems and not settle for obvious conclusions, applying this <strong class="text-teal-300/80">perseverance</strong> to all my projects.',
+  heading_certifications: '[ CERTIFICATIONS ]',
+  certifications: [
+    'EF SET English Certificate (B2 Upper Intermediate). 2025',
+    'Angular: Zero to Expert: DevTalles. 2025',
+    'Node.js: Zero to Expert: DevTalles. 2025'
+  ]
 };
 
 export const aboutMeData = {

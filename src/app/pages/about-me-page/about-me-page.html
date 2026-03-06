@@ -1,88 +1,120 @@
-<article class="my-24 max-w-4xl mx-auto space-y-10 text-lg text-gray-400 leading-relaxed">
+<article class="my-24 max-w-4xl mx-auto space-y-16 text-lg text-gray-400">
+  <!-- Titulo -->
   <h1
-    class="text-3xl font-bold mb-12 bg-linear-to-r from-sky-400 to-teal-300 bg-clip-text text-transparent lang-text invisible-start"
+    class="text-4xl md:text-5xl font-bold bg-linear-to-r from-teal-300 via-emerald-400 to-sky-400 bg-clip-text text-transparent lang-text invisible-start select-none"
     [class.lang-text-fading]="isChanging()"
     [innerHTML]="content().title"
     animateOnScroll="fade-up"
   ></h1>
 
+  <!-- Summary -->
   <section class="invisible-start" animateOnScroll="fade-up">
     <h2
-      class="text-xl font-bold text-emerald-400 mb-4 lang-text font-mono"
+      class="text-xl font-bold text-emerald-400 mb-6 lang-text font-mono tracking-widest uppercase"
       [class.lang-text-fading]="isChanging()"
-      [innerHTML]="content().heading_origin"
+      [innerHTML]="content().heading_summary"
     ></h2>
-    <div class="space-y-4">
+    <div class="border-l-2 border-emerald-400 pl-6 space-y-4">
       <p
-        class="lang-text"
+        class="lang-text text-xl leading-relaxed text-gray-300"
         [class.lang-text-fading]="isChanging()"
-        [innerHTML]="content().p_origin_1"
+        [innerHTML]="content().summary"
       ></p>
     </div>
   </section>
 
+  <!-- Experience -->
   <section class="invisible-start" animateOnScroll="fade-up">
     <h2
-      class="text-xl font-bold text-emerald-400 mb-4 lang-text font-mono"
+      class="text-xl font-bold text-teal-400 mb-6 lang-text font-mono tracking-widest uppercase"
       [class.lang-text-fading]="isChanging()"
-      [innerHTML]="content().heading_journey"
+      [innerHTML]="content().heading_experience"
     ></h2>
-    <div class="space-y-4">
-      <p
-        class="lang-text"
-        [class.lang-text-fading]="isChanging()"
-        [innerHTML]="content().p_journey_1"
-      ></p>
-      <p
-        class="lang-text"
-        [class.lang-text-fading]="isChanging()"
-        [innerHTML]="content().p_journey_2"
-      ></p>
+    <div class="space-y-12">
+      @for (job of content().experience; track job.company) {
+        <div class="relative border border-gray-800 bg-gray-900/40 p-6 md:p-8 rounded-xl lang-text transition-all hover:border-teal-400/30" [class.lang-text-fading]="isChanging()">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-2">
+            <div>
+              <h3 class="text-2xl font-bold text-white">{{ job.role }}</h3>
+              <p class="text-teal-300 font-medium">{{ job.company }} &bull; <span class="text-gray-500 font-normal">{{ job.location }}</span></p>
+            </div>
+            <div class="inline-flex max-w-max items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-800 text-gray-300 font-mono">
+              {{ job.date }}
+            </div>
+          </div>
+          <ul class="space-y-3 mt-4">
+            @for (achievement of job.achievements; track achievement) {
+              <li class="flex items-start">
+                <span class="mr-3 mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 bg-teal-400"></span>
+                <span class="leading-relaxed">{{ achievement }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
     </div>
   </section>
 
+  <!-- Education -->
   <section class="invisible-start" animateOnScroll="fade-up">
     <h2
-      class="text-xl font-bold text-emerald-400 mb-4 lang-text font-mono"
+      class="text-xl font-bold text-sky-400 mb-6 lang-text font-mono tracking-widest uppercase"
       [class.lang-text-fading]="isChanging()"
-      [innerHTML]="content().heading_philosophy"
+      [innerHTML]="content().heading_education"
     ></h2>
-    <div class="space-y-4">
-      <p
-        class="lang-text"
-        [class.lang-text-fading]="isChanging()"
-        [innerHTML]="content().p_philosophy_1"
-      ></p>
-      <p
-        class="lang-text"
-        [class.lang-text-fading]="isChanging()"
-        [innerHTML]="content().p_philosophy_2"
-      ></p>
+    <div class="space-y-8">
+      @for (edu of content().education; track edu.institution) {
+        <div class="border border-gray-800 bg-gray-900/40 p-6 md:p-8 rounded-xl lang-text transition-all hover:border-sky-400/30" [class.lang-text-fading]="isChanging()">
+           <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+            <div>
+              <h3 class="text-2xl font-bold text-white">{{ edu.degree }}</h3>
+              <p class="text-sky-300 font-medium">{{ edu.institution }} &bull; <span class="text-gray-500 font-normal">{{ edu.location }}</span></p>
+            </div>
+          </div>
+          <p class="text-gray-400 mt-4 leading-relaxed">{{ edu.details }}</p>
+        </div>
+      }
     </div>
   </section>
 
+  <!-- Skills -->
   <section class="invisible-start" animateOnScroll="fade-up">
     <h2
-      class="text-xl font-bold text-emerald-400 mb-4 lang-text font-mono"
+      class="text-xl font-bold text-indigo-400 mb-6 lang-text font-mono tracking-widest uppercase"
       [class.lang-text-fading]="isChanging()"
-      [innerHTML]="content().heading_passions"
+      [innerHTML]="content().heading_skills"
     ></h2>
-    <div class="space-y-4">
-      <p
-        class="lang-text"
-        [class.lang-text-fading]="isChanging()"
-        [innerHTML]="content().p_passions_1"
-      ></p>
-      <p
-        class="lang-text"
-        [class.lang-text-fading]="isChanging()"
-        [innerHTML]="content().p_passions_2"
-      ></p>
-      <p
-        class="lang-text"
-        [class.lang-text-fading]="isChanging()"
-        [innerHTML]="content().p_passions_3"
-      ></p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      @for (category of content().skills; track category.title) {
+        <div class="border border-gray-800 bg-gray-900/40 p-6 rounded-xl lang-text hover:border-indigo-400/30 transition-all" [class.lang-text-fading]="isChanging()">
+          <h3 class="text-lg font-semibold text-white mb-4 border-b border-gray-800 pb-2">{{ category.title }}</h3>
+          <div class="flex flex-wrap gap-2">
+            @for (skill of category.items; track skill) {
+              <span class="px-3 py-1.5 text-sm font-medium rounded-md bg-gray-800/80 border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition-colors cursor-default">
+                {{ skill }}
+              </span>
+            }
+          </div>
+        </div>
+      }
     </div>
   </section>
+
+  <!-- Certifications -->
+  <section class="invisible-start" animateOnScroll="fade-up">
+    <h2
+      class="text-xl font-bold text-fuchsia-400 mb-6 lang-text font-mono tracking-widest uppercase"
+      [class.lang-text-fading]="isChanging()"
+      [innerHTML]="content().heading_certifications"
+    ></h2>
+    <ul class="space-y-3 font-mono text-base border border-gray-800 bg-gray-900/40 p-6 md:p-8 rounded-xl hover:border-fuchsia-400/30 transition-all">
+      @for (cert of content().certifications; track cert) {
+        <li class="flex items-start text-gray-300 lang-text" [class.lang-text-fading]="isChanging()">
+          <span class="mr-3 text-fuchsia-400 font-bold select-none">&gt;</span>
+          <span>{{ cert }}</span>
+        </li>
+      }
+    </ul>
+  </section>
+
 </article>
