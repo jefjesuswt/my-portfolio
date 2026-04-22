@@ -2,7 +2,7 @@ export interface Experience {
   role: string;
   company: string;
   location: string;
-  date: string;
+  date?: string;
   achievements: string[];
 }
 
@@ -41,15 +41,14 @@ const esData: CvContent = {
   title: '&gt; cat ./curriculum.md',
 
   heading_summary: '[ SUMMARY ]',
-  summary: 'Próximo Ingeniero de Sistemas (10º semestre) con una base sólida en el ciclo de vida del desarrollo de software y gestión de bases de datos.',
+  summary: 'Ingeniero de Sistemas con una base sólida en el ciclo de vida del desarrollo de software y gestión de bases de datos.',
 
   heading_experience: '[ EXPERIENCE ]',
   experience: [
     {
-      role: 'Pasante',
+      role: 'Desarrollador Full Stack',
       company: 'iGemas, C.A.',
       location: 'Barcelona, Anzoátegui',
-      date: 'Nov 2025 - Ene 2026',
       achievements: [
         'Desarrollé un frontend de alto rendimiento para 5 sistemas web empresariales (gCon, gAdm, gHub, gBox, gInm) utilizando Angular 19+ y Tailwind CSS, implementando SSR (Server-Side Rendering) y Lazy Loading para optimizar la velocidad de la plataforma y el SEO.',
         'Automaticé los flujos de trabajo de despliegue y configuración arquitectando pipelines de CI/CD con Netlify y Bun, reemplazando procesos manuales con ciclos de lanzamiento optimizados y scripts de entorno Node.js personalizados.',
@@ -97,15 +96,14 @@ const enData: CvContent = {
   title: '&gt; cat ./resume.md',
 
   heading_summary: '[ SUMMARY ]',
-  summary: 'Upcoming Systems Engineer (10th semester) with a solid foundation in the software development lifecycle and database management.',
+  summary: 'Systems Engineer with a solid foundation in the software development lifecycle and database management.',
 
   heading_experience: '[ EXPERIENCE ]',
   experience: [
     {
-      role: 'Intern',
+      role: 'Full Stack Developer',
       company: 'iGemas, C.A.',
       location: 'Barcelona, Anzoátegui',
-      date: 'Nov 2025 - Jan 2026',
       achievements: [
         'Developed a high-performance frontend for 5 enterprise web systems (gCon, gAdm, gHub, gBox, gInm) using Angular 19+ and Tailwind CSS, implementing SSR (Server-Side Rendering) and Lazy Loading to optimize platform speed and SEO.',
         'Automated deployment and configuration workflows by architecting CI/CD pipelines with Netlify and Bun, replacing manual processes with optimized release cycles and custom Node.js environment scripts.',

@@ -38,6 +38,24 @@ const esLinkTexts: LinkTexts = {
 
 const esData: Project[] = [
   {
+    id: 'poddington',
+    animation: 'slide-left',
+    borderColor: 'border-sky-400/30',
+    hoverBorderColor: 'hover:border-sky-400/60',
+    preColor: 'text-sky-400',
+    preAscii: `[PROYECTO] Poddington`,
+    description:
+      'Orquestador de contenedores y plataforma de despliegue All-in-One. Un único binario para gestionar múltiples servidores y desplegar aplicaciones sin needing Kubernetes.',
+    githubUrl: 'https://github.com/jefjesuswt/poddington',
+    technologies: ['Go', 'Podman', 'Docker', 'SQLite'],
+    features: [
+      'Daemonless & rootless con Podman (más seguro que Docker).',
+      'Gestión centralizada de múltiples servidores desde un solo panel.',
+      'Builds locales: compila en tu máquina, desplie a producción.',
+      'Soberanía total: SQLite embebida, Litestream para backups a S3/R2.',
+    ],
+  },
+  {
     id: 'dicasa-fe',
     animation: 'slide-left',
     borderColor: 'border-teal-300/30',
@@ -136,7 +154,25 @@ const enLinkTexts: LinkTexts = {
 
 const enData: Project[] = [
   {
-    ...esData[0],
+    id: 'poddington',
+    animation: 'slide-left',
+    borderColor: 'border-sky-400/30',
+    hoverBorderColor: 'hover:border-sky-400/60',
+    preColor: 'text-sky-400',
+    preAscii: `[PROJECT] Poddington`,
+    description:
+      'All-in-One container orchestrator and deployment platform. A single binary to manage multiple servers and deploy apps without needing Kubernetes.',
+    githubUrl: 'https://github.com/jefjesuswt/poddington',
+    technologies: ['Go', 'Podman', 'Docker', 'SQLite'],
+    features: [
+      'Daemonless & rootless with Podman (safer than Docker).',
+      'Centralized multi-server management from a single dashboard.',
+      'Local builds: compile on your machine, deploy to production.',
+      'Total sovereignty: embedded SQLite, Litestream backups to S3/R2.',
+    ],
+  },
+  {
+    ...esData[2],
     preAscii: `[PROJECT] Dicasa Frontend`,
     description:
       'Modern web app for real estate visualization. Includes gallery, filters, authentication, appointments, and property management (CRUD).',
@@ -147,7 +183,7 @@ const enData: Project[] = [
     ],
   },
   {
-    ...esData[1],
+    ...esData[3],
     preAscii: `[PROJECT] iGemas Frontend`,
     description:
       'Main landing page and product CTA pages for the web platform.',
@@ -158,7 +194,7 @@ const enData: Project[] = [
     ],
   },
   {
-    ...esData[2],
+    ...esData[4],
     preAscii: `[PROJECT] Notlin`,
     description: 'Minimalist Notion clone built with Nuxt, Nuxt UI Editor (Tiptap) with slash commands, Turso database, and a fast Bun backend.',
     features: [
@@ -168,7 +204,7 @@ const enData: Project[] = [
     ],
   },
   {
-    ...esData[3],
+    ...esData[5],
     preAscii: `[PROJECT] Tritio`,
     description: 'The fast, opinionated h3 framework. Features end-to-end type safety.',
     features: [
@@ -179,7 +215,7 @@ const enData: Project[] = [
     ],
   },
   {
-    ...esData[4],
+    ...esData[6],
     preAscii: `[PROJECT] Mako`,
     description: 'Frontend for ShadPS4 emulator built with Tauri and Angular.',
     features: [
